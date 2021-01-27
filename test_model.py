@@ -1,3 +1,7 @@
+"""
+Manual testing of your trained model
+"""
+
 import model
 import test_generator
 import os

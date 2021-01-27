@@ -1,3 +1,6 @@
+"""
+A personal library of useful functions
+"""
 import cv2
 import numpy as np
 import os

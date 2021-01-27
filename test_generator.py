@@ -1,3 +1,8 @@
+"""
+Generator used for testing, as you may not want to test with
+the same amount of classes as when you train
+"""
+
 import os
 import cv2
 import random
