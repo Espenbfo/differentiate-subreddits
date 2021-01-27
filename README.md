@@ -1,0 +1,2 @@
+# Differentiate
+This project consists of a CNN that classifies images to subreddits and predicts their upvotes. The images are scraped with a modified version of RipMe (https://github.com/RipMeApp/ripme) used on reddit.com.
