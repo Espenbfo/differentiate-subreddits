@@ -1,3 +1,9 @@
+"""
+An image generator that alternates between yielding random images from your
+ training subreddits. This project needs a generator, as there are too many
+ images to load everything at the same time.
+"""
+
 import os
 import cv2
 import random
@@ -5,7 +11,8 @@ import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 data_folder = "data"
 
-def generator(batch_size, data_folder=data_folder,total_classes=0):
+
+def generator(batch_size, data_folder=data_folder, total_classes=0):
     batch_img = []
     batch_labels = [[],[]]
 
@@ -34,7 +41,7 @@ def generator(batch_size, data_folder=data_folder,total_classes=0):
         image = cv2.imread(os.path.join(data_folder,folders[current_folder], filename))
 
 
-        score,index = filename.split("_")
+        score, index = filename.split("_")
 
         score = 1/max((np.log10(int(score)+10)),1)
 
@@ -64,18 +71,3 @@ def generator(batch_size, data_folder=data_folder,total_classes=0):
         current_folder += 1
         if current_folder == num_folders:
             current_folder = 0
-
-if __name__ == "__main__":
-    gen = generator(10)
-
-    k = next(gen)
-    print(k)
-    cv2.imshow("1",k[0][0])
-    cv2.waitKey(0)
-    cv2.imshow("1",k[0][1])
-    cv2.waitKey(0)
-
-    k = next(gen)
-    print(k)
-    cv2.imshow("1",k[0][0])
-    cv2.waitKey(0)
